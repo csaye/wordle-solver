@@ -10,6 +10,10 @@ import styles from '../styles/pages/Index.module.css';
 const answerIndex = Math.floor(Math.random() * answers.length);
 const answer = answers[answerIndex];
 
+let greens = Array(5).fill('');
+let yellows = [];
+let grays = [];
+
 export default function Index() {
   const [words, setWords] = useState(Array(6).fill(''));
   const [currRow, setCurrRow] = useState(0);
@@ -22,7 +26,19 @@ export default function Index() {
     if (key === 'backspace' && word.length > 0) word = word.slice(0, -1);
     newWords[currRow] = word;
     setWords(newWords);
-    if (key === 'ENTER' && word.length == 5) setCurrRow(val => val + 1);
+    // enter word
+    if (key === 'enter' && word.length == 5) {
+      // return if invalid
+      if (!answers.includes(word) && !words.includes(word)) return;
+      // update rules
+      for (let i = 0; i < 5; i++) {
+        if (word[i] === answer[i]) greens[i] = answer[i];
+        else if (answer.includes(word[i])) yellows.push(word[i]);
+        else grays.push(word[i]);
+      }
+      // increment row
+      setCurrRow(val => val + 1);
+    }
   }
 
   // called when key pressed
