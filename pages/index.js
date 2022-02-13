@@ -30,16 +30,25 @@ export default function Index() {
     <div className={styles.container}>
       <div className={styles.tiles}>
         {
-          Array(5).fill(0).map((val, i) =>
+          Array(6).fill(0).map((row, i) =>
             <div
-              className={
-                word[i] ?
-                `${styles.tile} ${styles.filled}` :
-                styles.tile
-              }
+              className={styles.tilerow}
               key={i}
             >
-              {word[i]}
+              {
+                Array(5).fill(0).map((val, i) =>
+                  <div
+                    className={
+                      word[i] ?
+                      `${styles.tile} ${styles.filled}` :
+                      styles.tile
+                    }
+                    key={i}
+                  >
+                    {word[i]}
+                  </div>
+                )
+              }
             </div>
           )
         }
