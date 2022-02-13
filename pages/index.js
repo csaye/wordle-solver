@@ -37,6 +37,29 @@ export default function Index() {
           )
         }
       </div>
+      <div className={styles.keyboard}>
+        <div className={styles.row}>
+          {
+            'QWERTYUIOP'.split('').map((char, i) =>
+              <button key={i}>{char}</button>
+            )
+          }
+        </div>
+        <div className={styles.row}>
+          {
+            'ASDFGHJKL'.split('').map((char, i) =>
+              <button key={i}>{char}</button>
+            )
+          }
+        </div>
+        <div className={styles.row}>
+          {
+            'ZXCVBNM'.split('').map((char, i) =>
+              <button key={i}>{char}</button>
+            )
+          }
+        </div>
+      </div>
     </div>
   );
 }
