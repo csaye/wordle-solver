@@ -121,6 +121,15 @@ export default function Index() {
           </button>
         </div>
       </div>
+      <div className={styles.guesses}>
+        {
+          answers.filter(word => validWord(word)).slice(0, 10).map((word, i) =>
+            <div key={i}>
+              {word}
+            </div>
+          )
+        }
+      </div>
     </div>
   );
 }
