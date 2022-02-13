@@ -8,7 +8,7 @@ import styles from '../styles/pages/Index.module.css';
 
 // get random answer
 const answerIndex = Math.floor(Math.random() * answers.length);
-const answer = answers[answerIndex];
+const answer = answers[answerIndex].toUpperCase();
 
 export default function Index() {
   const [words, setWords] = useState(Array(6).fill(''));
@@ -22,13 +22,20 @@ export default function Index() {
     if (key === 'BACKSPACE' && word.length > 0) word = word.slice(0, -1);
     newWords[currRow] = word;
     setWords(newWords);
-    if (key === 'ENTER' && word.length == 5) currRow += 1;
+    if (key === 'ENTER' && word.length == 5) setCurrRow(val => val + 1);
   }
 
   // called when key pressed
   function onKeydown(e) {
     const key = e.key.toUpperCase();
     handleKey(key);
+  }
+
+  // returns style for word at given index
+  function getStyle(word, index) {
+    if (word[index] === answer[index]) return styles.green;
+    if (answer.includes(word[index])) return styles.yellow;
+    return styles.gray;
   }
 
   // listen for keypresses
@@ -50,8 +57,8 @@ export default function Index() {
                 Array(5).fill(0).map((val, col) =>
                   <div
                     className={
-                      (row < currRow ? styles.green : '') + ' ' +
                       (words[row][col] ? styles.filled : '') + ' ' +
+                      (row < currRow ? getStyle(words[row], col) : '') + ' ' +
                       styles.tile
                     }
                     key={col}
