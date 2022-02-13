@@ -8,7 +8,7 @@ import styles from '../styles/pages/Index.module.css';
 
 // get random answer
 const answerIndex = Math.floor(Math.random() * answers.length);
-const answer = answers[answerIndex].toUpperCase();
+const answer = answers[answerIndex];
 
 export default function Index() {
   const [words, setWords] = useState(Array(6).fill(''));
@@ -18,8 +18,8 @@ export default function Index() {
   function handleKey(key) {
     let word = words[currRow];
     const newWords = words.slice();
-    if (/^[A-Z]$/.test(key) && word.length < 5) word += key;
-    if (key === 'BACKSPACE' && word.length > 0) word = word.slice(0, -1);
+    if (/^[a-z]$/.test(key) && word.length < 5) word += key;
+    if (key === 'backspace' && word.length > 0) word = word.slice(0, -1);
     newWords[currRow] = word;
     setWords(newWords);
     if (key === 'ENTER' && word.length == 5) setCurrRow(val => val + 1);
@@ -27,7 +27,7 @@ export default function Index() {
 
   // called when key pressed
   function onKeydown(e) {
-    const key = e.key.toUpperCase();
+    const key = e.key.toLowerCase();
     handleKey(key);
   }
 
@@ -80,7 +80,7 @@ export default function Index() {
                     }
                     key={col}
                   >
-                    {words[row][col]}
+                    {words[row][col]?.toUpperCase()}
                   </div>
                 )
               }
@@ -91,7 +91,7 @@ export default function Index() {
       <div className={styles.keyboard}>
         <div className={styles.row}>
           {
-            'QWERTYUIOP'.split('').map((char, i) =>
+            'qwertyuiop'.split('').map((char, i) =>
               <button
                 onClick={() => handleKey(char)}
                 key={i}
@@ -103,7 +103,7 @@ export default function Index() {
         </div>
         <div className={styles.row}>
           {
-            'ASDFGHJKL'.split('').map((char, i) =>
+            'asdfghjkl'.split('').map((char, i) =>
               <button
                 onClick={() => handleKey(char)}
                 key={i}
@@ -116,12 +116,12 @@ export default function Index() {
         <div className={styles.row}>
           <button
             className={styles.wide}
-            onClick={() => handleKey('ENTER')}
+            onClick={() => handleKey('enter')}
           >
             ENTER
           </button>
           {
-            'ZXCVBNM'.split('').map((char, i) =>
+            'zxcvbnm'.split('').map((char, i) =>
               <button
                 onClick={() => handleKey(char)}
                 key={i}
@@ -132,7 +132,7 @@ export default function Index() {
           }
           <button
             className={styles.wide}
-            onClick={() => handleKey('BACKSPACE')}
+            onClick={() => handleKey('backspace')}
           >
             <BackspaceOutlinedIcon />
           </button>
