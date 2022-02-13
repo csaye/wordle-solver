@@ -24,7 +24,14 @@ export default function Index() {
       <div className={styles.center}>
         {
           Array(5).fill(0).map((val, i) =>
-            <div className={styles.tile} key={i}>
+            <div
+              className={
+                word[i] ?
+                `${styles.tile} ${styles.filled}` :
+                styles.tile
+              }
+              key={i}
+            >
               {word[i]}
             </div>
           )

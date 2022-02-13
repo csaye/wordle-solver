@@ -21,3 +21,7 @@
   margin: 2.5px;
   font-size: 32px;
 }
+
+.tile.filled {
+  border-color: #878a8c;
+}
