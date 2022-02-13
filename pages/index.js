@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 
 import styles from '../styles/pages/Index.module.css';
 
+let currRow = 0;
+
 export default function Index() {
   const [word, setWord] = useState('');
 
@@ -30,22 +32,22 @@ export default function Index() {
     <div className={styles.container}>
       <div className={styles.tiles}>
         {
-          Array(6).fill(0).map((row, i) =>
+          Array(6).fill(0).map((val, row) =>
             <div
               className={styles.tilerow}
-              key={i}
+              key={row}
             >
               {
-                Array(5).fill(0).map((val, i) =>
+                Array(5).fill(0).map((val, col) =>
                   <div
                     className={
-                      word[i] ?
-                      `${styles.tile} ${styles.filled}` :
+                      (row < currRow ? styles.green : '') + ' ' +
+                      (words[row][col] ? styles.filled : '') + ' ' +
                       styles.tile
                     }
-                    key={i}
+                    key={col}
                   >
-                    {word[i]}
+                    {words[row][col]}
                   </div>
                 )
               }
