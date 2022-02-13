@@ -1,13 +1,18 @@
 import BackspaceOutlinedIcon from '@mui/icons-material/BackspaceOutlined';
 
+import { answers } from '../data/answers';
+import { words } from '../data/words';
 import { useEffect, useState } from 'react';
 
 import styles from '../styles/pages/Index.module.css';
 
-let currRow = 0;
+// get random answer
+const answerIndex = Math.floor(Math.random() * answers.length);
+const answer = answers[answerIndex];
 
 export default function Index() {
   const [words, setWords] = useState(Array(6).fill(''));
+  const [currRow, setCurrRow] = useState(0);
 
   // handles given key press
   function handleKey(key) {
