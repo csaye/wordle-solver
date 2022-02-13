@@ -1,3 +1,5 @@
+import BackspaceOutlinedIcon from '@mui/icons-material/BackspaceOutlined';
+
 import { useEffect, useState } from 'react';
 
 import styles from '../styles/pages/Index.module.css';
@@ -26,7 +28,7 @@ export default function Index() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.center}>
+      <div className={styles.tiles}>
         {
           Array(5).fill(0).map((val, i) =>
             <div
@@ -68,6 +70,12 @@ export default function Index() {
           }
         </div>
         <div className={styles.row}>
+          <button
+            className={styles.wide}
+            onClick={() => handleKey('ENTER')}
+          >
+            ENTER
+          </button>
           {
             'ZXCVBNM'.split('').map((char, i) =>
               <button
@@ -78,6 +86,12 @@ export default function Index() {
               </button>
             )
           }
+          <button
+            className={styles.wide}
+            onClick={() => handleKey('BACKSPACE')}
+          >
+            <BackspaceOutlinedIcon />
+          </button>
         </div>
       </div>
     </div>
