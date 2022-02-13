@@ -20,8 +20,16 @@ export default function Index() {
   }, []);
 
   return (
-    <div>
-      <h1>{word}</h1>
+    <div className={styles.container}>
+      <div className={styles.center}>
+        {
+          Array(5).fill(0).map((val, i) =>
+            <div className={styles.tile} key={i}>
+              {word[i]}
+            </div>
+          )
+        }
+      </div>
     </div>
   );
 }
