@@ -38,6 +38,23 @@ export default function Index() {
     return styles.gray;
   }
 
+  // returns whether given word is valid
+  function validWord(word) {
+    // validate greens
+    for (let i = 0; i < 5; i++) {
+      if (greens[i] && (greens[i] !== word[i])) return false;
+    }
+    // validate yellows
+    for (const char of yellows) {
+      if (!word.includes(char)) return false;
+    }
+    // validate grays
+    for (const char of grays) {
+      if (word.includes(char)) return false;
+    }
+    return true;
+  }
+
   // listen for keypresses
   useEffect(() => {
     window.addEventListener('keydown', onKeydown);
