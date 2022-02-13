@@ -27,6 +27,18 @@
   border-color: #878a8c;
 }
 
+.tile.yellow {
+  background: #c9b458;
+  color: #fff;
+  border: 0;
+}
+
+.tile.green {
+  background: #6aaa64;
+  color: #fff;
+  border: 0;
+}
+
 .keyboard {
   display: flex;
   flex-direction: column;
@@ -50,6 +62,21 @@
   border: 0;
   margin: 4px 3px;
 }
+
+.row > button.yellow {
+  background: #c9b458;
+  color: #fff;
+}
+
+.row > button.green {
+  background: #6aaa64;
+  color: #fff;
+}
+
+.row > button.wide {
+  width: 65.4px;
+}
+
 @keyframes pop {
   0%, 100% {
     transform: scale(1);
