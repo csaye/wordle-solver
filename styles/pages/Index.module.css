@@ -1,0 +1,23 @@
+.container {
+  height: 100%;
+}
+
+.center {
+  width: 700px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tile {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid #d3d6da;
+  margin: 2.5px;
+  font-size: 32px;
+}
