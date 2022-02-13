@@ -27,6 +27,29 @@
   border-color: #878a8c;
 }
 
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.row > button {
+  width: 43px;
+  height: 58px;
+  font-weight: 700;
+  font-size: 13.33px;
+  background: #d3d6da;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  margin: 4px 3px;
+}
 @keyframes pop {
   0%, 100% {
     transform: scale(1);
