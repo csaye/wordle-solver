@@ -5,12 +5,17 @@ import styles from '../styles/pages/Index.module.css';
 export default function Index() {
   const [word, setWord] = useState('');
 
-  // called when key pressed
-  function onKeydown(e) {
-    const key = e.key.toUpperCase();
+  // handles given key press
+  function handleKey(key) {
     if (/^[A-Z]$/.test(key) && word.length < 5) setWord(val => val + key);
     if (key === 'ENTER' && word.length == 5) setWord('');
     if (key === 'BACKSPACE' && word.length > 0) setWord(val => val.slice(0, -1));
+  }
+
+  // called when key pressed
+  function onKeydown(e) {
+    const key = e.key.toUpperCase();
+    handleKey(key);
   }
 
   // listen for keypresses
