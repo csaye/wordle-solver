@@ -7,13 +7,17 @@ import styles from '../styles/pages/Index.module.css';
 let currRow = 0;
 
 export default function Index() {
-  const [word, setWord] = useState('');
+  const [words, setWords] = useState(Array(6).fill(''));
 
   // handles given key press
   function handleKey(key) {
-    if (/^[A-Z]$/.test(key) && word.length < 5) setWord(val => val + key);
-    if (key === 'ENTER' && word.length == 5) setWord('');
-    if (key === 'BACKSPACE' && word.length > 0) setWord(val => val.slice(0, -1));
+    let word = words[currRow];
+    const newWords = words.slice();
+    if (/^[A-Z]$/.test(key) && word.length < 5) word += key;
+    if (key === 'BACKSPACE' && word.length > 0) word = word.slice(0, -1);
+    newWords[currRow] = word;
+    setWords(newWords);
+    if (key === 'ENTER' && word.length == 5) currRow += 1;
   }
 
   // called when key pressed
