@@ -30,6 +30,12 @@
   border-color: #878a8c;
 }
 
+.tile.gray {
+  background: #787c7e;
+  color: #fff;
+  border: 0;
+}
+
 .tile.yellow {
   background: #c9b458;
   color: #fff;
@@ -64,6 +70,7 @@
   justify-content: center;
   border: 0;
   margin: 4px 3px;
+  outline: none;
 }
 
 .row > button.yellow {
@@ -78,6 +85,7 @@
 
 .row > button.wide {
   width: 65.4px;
+  font-size: 12px;
 }
 
 @keyframes pop {
