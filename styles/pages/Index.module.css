@@ -23,5 +23,15 @@
 }
 
 .tile.filled {
+  animation: pop 0.08s linear;
   border-color: #878a8c;
+}
+
+@keyframes pop {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
