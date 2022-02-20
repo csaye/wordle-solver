@@ -88,6 +88,17 @@
   font-size: 12px;
 }
 
+.words {
+  display: flex;
+  justify-content: center;
+}
+
+.guesses, .answers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @keyframes pop {
   0%, 100% {
     transform: scale(1);
