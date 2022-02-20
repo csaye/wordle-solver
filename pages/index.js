@@ -71,6 +71,16 @@ export default function Index() {
     return true;
   }
 
+  // returns match score between given words
+  function matchScore(a, b) {
+    let score = 0;
+    for (let i = 0; i < 5; i++) {
+      if (a[i] === b[i]) score += 1;
+      else if (b.includes(a[i])) score += 0.5;
+    }
+    return score;
+  }
+
   // listen for keypresses
   useEffect(() => {
     window.addEventListener('keydown', onKeydown);
