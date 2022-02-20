@@ -81,6 +81,15 @@ export default function Index() {
     return score;
   }
 
+  // returns score for given guess
+  function guessScore(word) {
+    let score = 0;
+    for (const ans of answers) {
+      score += matchScore(word, ans);
+    }
+    return score;
+  }
+
   // listen for keypresses
   useEffect(() => {
     window.addEventListener('keydown', onKeydown);
