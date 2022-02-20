@@ -32,20 +32,20 @@
 
 .tile.gray {
   background: #787c7e;
-  color: #fff;
-  border: 0;
 }
 
 .tile.yellow {
   background: #c9b458;
-  color: #fff;
-  border: 0;
 }
 
 .tile.green {
   background: #6aaa64;
+}
+
+.tile.gray, .tile.yellow, .tile.green {
   color: #fff;
   border: 0;
+  animation: flip 3.5s linear;
 }
 
 .keyboard {
@@ -105,5 +105,14 @@
   }
   50% {
     transform: scale(1.1);
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(0);
   }
 }
