@@ -176,18 +176,20 @@ export default function Index() {
           </button>
         </div>
       </div>
-      <div className={styles.guesses}>
-        {
-          guesses
-          .slice()
-          .sort((a, b) => guessScore(b) - guessScore(a))
-          .slice(0, 10)
-          .map((word, i) =>
-            <div key={i}>
-              {word}
-            </div>
-          )
-        }
+      <div className={styles.words}>
+        <div className={styles.guesses}>
+          {
+            guesses
+            .slice()
+            .sort((a, b) => guessScore(b) - guessScore(a))
+            .slice(0, 10)
+            .map((word, i) =>
+              <div key={i}>
+                {word}
+              </div>
+            )
+          }
+        </div>
         <div className={styles.answers}>
           {
             validAnswers
