@@ -18,6 +18,8 @@ export default function Index() {
   const [words, setWords] = useState(Array(6).fill(''));
   const [currRow, setCurrRow] = useState(0);
 
+  const guesses = answers;
+
   // handles given key press
   function handleKey(key) {
     let word = words[currRow];
@@ -175,7 +177,11 @@ export default function Index() {
       </div>
       <div className={styles.guesses}>
         {
-          answers.filter(word => validWord(word)).slice(0, 10).map((word, i) =>
+          guesses
+          .slice()
+          .sort((a, b) => guessScore(b) - guessScore(a))
+          .slice(0, 10)
+          .map((word, i) =>
             <div key={i}>
               {word}
             </div>
